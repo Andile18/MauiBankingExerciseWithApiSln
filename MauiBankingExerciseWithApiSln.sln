@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36327.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingApi", "BankingApi\BankingApi.csproj", "{C01E31F7-66C3-6344-F824-2B8DE8D90D61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiBankingExercise", "MauiBankingExercise\MauiBankingExercise.csproj", "{8C118918-C437-112C-0A61-ABC927325328}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C01E31F7-66C3-6344-F824-2B8DE8D90D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C01E31F7-66C3-6344-F824-2B8DE8D90D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C01E31F7-66C3-6344-F824-2B8DE8D90D61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C118918-C437-112C-0A61-ABC927325328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C118918-C437-112C-0A61-ABC927325328}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C118918-C437-112C-0A61-ABC927325328}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C118918-C437-112C-0A61-ABC927325328}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

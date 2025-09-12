@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MauiBankingExercise.ViewModels"
+             x:Class="MauiBankingExercise.Views.TransactionView"
+             Title="Make Transaction"
+             BackgroundColor="#004C3F">
+
+    <ContentPage.BindingContext>
+        <viewmodels:TransactionViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="20">
+
+            <Label Text="New Transaction"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" />
+
+            <Border  Padding="15" BackgroundColor="White" >
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Account Number"
+                           FontSize="14"
+                           TextColor="#004C3F" />
+                    <Label Text="{Binding SelectedAccount.AccountNumber}"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           TextColor="Black" />
+
+                    <Label Text="Transaction Type"
+                           FontSize="14"
+                           TextColor="#004C3F" />
+                    <Picker ItemsSource="{Binding TransactionTypes}"
+                            SelectedItem="{Binding SelectedTransactionType}"
+                            BackgroundColor="#F2F2F2"
+                            TextColor="Black"
+                            Title="Select Type" />
+
+                    <Label Text="Amount"
+                           FontSize="14"
+                           TextColor="#004C3F" />
+                    <Entry Placeholder="Enter amount"
+                           Keyboard="Numeric"
+                           Text="{Binding TransactionAmount}"
+                           BackgroundColor="#F2F2F2"
+                           TextColor="Black" />
+
+                    <Button Text="Submit Transaction"
+                            Command="{Binding SubmitTransactionCommand}"
+                            BackgroundColor="#004C3F"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            CornerRadius="8"
+                            HeightRequest="50"/>
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
