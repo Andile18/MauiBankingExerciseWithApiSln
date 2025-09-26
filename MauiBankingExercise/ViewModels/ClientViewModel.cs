@@ -15,7 +15,7 @@ namespace MauiBankingExercise.ViewModels
     [QueryProperty(nameof(CustomerId),"customerId")] 
     public class ClientViewModel: BaseViewModel
     {
-        private readonly BankingDatabaseService _service;
+        private readonly BankingApiService _service;
         private Customer _customer;
         private Account _selectedAccount;
         private int _customerId;
@@ -60,7 +60,7 @@ namespace MauiBankingExercise.ViewModels
 
         public ClientViewModel()
         {
-            _service = new BankingDatabaseService();
+            _service = new BankingApiService();
             RefreshCommand = new Command(async () => await LoadCustomerData());
             ViewTransactionsCommand = new Command<Account>(async acc => await ViewAccountTransactions(acc));
             SelectAccountCommand = new Command<SelectionChangedEventArgs>(OnAccountSelected);

@@ -10,7 +10,7 @@ namespace MauiBankingExercise.ViewModels
     [QueryProperty(nameof(AccountId), "accountId")]
     public class TransactionViewModel : BaseViewModel
     {
-        private readonly BankingDatabaseService _service;
+        private readonly BankingApiService _service;
         private Account _selectedAccount;
         private string _selectedTransactionType;
         private string _transactionAmount;
@@ -50,7 +50,7 @@ namespace MauiBankingExercise.ViewModels
 
         public TransactionViewModel()
         {
-            _service = new BankingDatabaseService();
+            _service = new BankingApiService();
             SubmitTransactionCommand = new Command(async () => await SubmitTransaction(), CanSubmitTransaction);
         }
 

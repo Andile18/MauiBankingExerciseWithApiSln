@@ -9,12 +9,12 @@ namespace MauiBankingExercise.ViewModels
 {
     public class ClientListViewModel : INotifyPropertyChanged
     {
-        private readonly BankingDatabaseService _service;
+        private readonly BankingApiService _service;
         private bool _isLoading;
 
         public ObservableCollection<Customer> Clients { get; set; }
         public ICommand SelectCustomerCommand { get; set; }
-
+        public ICommand CustomerCommand { get; set; }
 
         public bool IsLoading
         {
@@ -28,7 +28,7 @@ namespace MauiBankingExercise.ViewModels
 
         public ClientListViewModel()
         {
-            _service = new BankingDatabaseService();
+            _service = new BankingApiService();
             Clients = new ObservableCollection<Customer>();
             SelectCustomerCommand = new Command<SelectionChangedEventArgs>(OnClientSelected);
             LoadClients();
@@ -39,13 +39,13 @@ namespace MauiBankingExercise.ViewModels
             IsLoading = true;
             try
             {
-                var clients = _service.GetAllCustomers();
+                var clients = await _service.GetAllCustomers();
                 Clients.Clear();
 
                 if (clients != null)
                 {
-                    foreach (var client in clients)
-                        Clients.Add(client);
+                    foreach (var client in  clients)
+                        Clients.Add((Customer)client);
                 }
             }
             catch (Exception ex)
@@ -88,6 +88,16 @@ namespace MauiBankingExercise.ViewModels
 
         }
 
+        private async Task AddCustomer()
+        {
+            var newCustomer = new Customer
+            {
+                FirstName = "",
+                LastName = "",
+                Email = null
+
+            };
+        } 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
